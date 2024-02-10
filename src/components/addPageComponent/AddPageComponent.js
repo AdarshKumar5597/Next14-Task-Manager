@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-import AdminTaskToUserForm from "../adminTaskToUserForm/AdminTaskToUserForm";
-import Admintasks from "../adminTasks/AdminTasks";
+import AdminTaskToUserForm from "../adminTaskToUserForm/adminTaskToUserForm";
+import Admintasks from "../adminTasks/adminTasks";
 
 const AddPageComponent = ({ session, tasks }) => {
   const [addTask, setAddTask] = useState(false);

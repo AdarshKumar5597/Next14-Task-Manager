@@ -1,10 +1,8 @@
 {
-  "/page": "app/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/about/page": "app/about/page.js",
-  "/task/page": "app/task/page.js",
   "/admin/page": "app/admin/page.js",
-  "/api/user/route": "app/api/user/route.js",
   "/api/task/route": "app/api/task/route.js",
+  "/task/page": "app/task/page.js",
+  "/about/page": "app/about/page.js",
+  "/page": "app/page.js",
   "/statistics/page": "app/statistics/page.js"
 }

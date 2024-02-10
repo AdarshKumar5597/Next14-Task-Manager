@@ -4,7 +4,7 @@ import { deleteUser } from "@/lib/action";
 import styles from "./adminUsers.module.css";
 import Image from "next/image";
 import AdminUserForm from "../adminUserForm/AdminUserForm";
-import AdminTaskToUserForm from "../adminTaskToUserForm/AdminTaskToUserForm";
+import AdminTaskToUserForm from "../adminTaskToUserForm/adminTaskToUserForm";
 import { useState } from "react";
 
 const AdminUsers = async ({ users }) => {
@@ -24,8 +24,8 @@ const AdminUsers = async ({ users }) => {
     <div className={styles.row}>
       <div className={styles.col}>
         <h1>Users</h1>
-        {users.map((user) => (
-          <div className={styles.user} key={user._id}>
+        {users.map((user, index) => (
+          <div className={styles.user} key={index}>
             <div className={styles.detail}>
               <Image
                 src={user.img || "/noavatar.png"}

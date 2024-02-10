@@ -34,7 +34,7 @@ const AdminTaskForm = (props) => {
       <input
         type="hidden"
         name="id"
-        value={task?._id}
+        value={task?._id.toString()}
         {...register("id", { required: true })}
       />
       <input

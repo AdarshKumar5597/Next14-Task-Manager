@@ -2,7 +2,7 @@
 import { deleteTask } from "@/lib/action";
 import styles from "./adminTasks.module.css";
 import Image from "next/image";
-import AdminTaskForm from "../adminTaskForm/AdminTaskForm";
+import AdminTaskForm from "../adminTaskForm/adminTaskForm";
 import { useState } from "react";
 
 const Admintasks = async (props) => {
@@ -28,8 +28,8 @@ const Admintasks = async (props) => {
       <div className={styles.col}>
         {!isUser && <h1>Tasks</h1>}
 
-        {tasks?.map((task) => (
-          <div className={styles.task} key={task._id}>
+        {tasks?.map((task, index) => (
+          <div className={styles.task} key={index}>
             <div className={styles.detail}>
               <Image src={"/noavatar.png"} alt="" width={50} height={50} />
               <span className={styles.taskTitle}>{task.title}</span>

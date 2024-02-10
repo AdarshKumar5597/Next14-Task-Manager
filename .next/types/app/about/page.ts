@@ -1,4 +1,4 @@
-// File: C:\Users\KIIT\Documents\PROJECTS\next-blog\src\app\about\page.jsx
+// File: C:\Users\KIIT\Documents\PROJECTS\Next14 Task Manager\src\app\about\page.jsx
 import * as entry from '../../../../src/app/about/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
