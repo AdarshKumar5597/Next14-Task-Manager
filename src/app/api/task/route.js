@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export const GET = async (request) => {
     try {
-        connectToDb();
+        await connectToDb();
         const tasks = await Task.find({}).sort({ createdAt: -1 }).populate("userId", "username");
         return NextResponse.json(tasks);
     } catch (error) {

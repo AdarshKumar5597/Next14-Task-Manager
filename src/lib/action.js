@@ -11,7 +11,7 @@ export const addTask = async (formData) => {
   const { title, desc, userId, status } = formData;
 
   try {
-    connectToDb();
+    await connectToDb();
     const newTask = await new Task({
       title,
       desc,
@@ -36,7 +36,7 @@ export const updateTask = async (formData) => {
   const { id, title, desc, status } = formData;
 
   try {
-    connectToDb();
+    await connectToDb();
     const updatedTask = await Task.findByIdAndUpdate(id, {
       title,
       desc,
@@ -54,7 +54,7 @@ export const updateTask = async (formData) => {
 export const deleteTask = async (id) => {
   console.log("Inside deleteTask");
   try {
-    connectToDb();
+    await connectToDb();
     await Task.findByIdAndDelete(id);
     revalidatePath("/task");
     revalidatePath("/admin");
@@ -71,7 +71,7 @@ export const addUser = async (formData) => {
   const hashedPassword = await bcrypt.hash(password, salt);
 
   try {
-    connectToDb();
+    await connectToDb();
     const newUser = await new User({
       username,
       email,
@@ -93,7 +93,7 @@ export const addUser = async (formData) => {
 
 export const deleteUser = async (id) => {
   try {
-    connectToDb();
+    await connectToDb();
     await Task.deleteMany({ userId: id });
     await User.findByIdAndDelete(id);
     revalidatePath("/admin");
@@ -127,7 +127,7 @@ export const registerUser = async (formData) => {
   const hashedPassword = await bcrypt.hash(password, salt);
 
   try {
-    connectToDb();
+    await connectToDb();
 
     const user = await User.findOne({ email });
     if (user) {
@@ -167,7 +167,7 @@ export const login = async (prevState, formData) => {
 
 export const getTasksOfUser = async (userId) => {
   try {
-    connectToDb();
+    await connectToDb();
     const tasks = await Task.find({ userId })
       .sort({ createdAt: -1 })
       .populate("userId", "username");

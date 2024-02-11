@@ -2,11 +2,10 @@ import { Task, User } from "./models";
 import { connectToDb } from "./utils";
 import { unstable_noStore as noStore } from "next/cache";
 import { NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
 
 export const getTasks = async () => {
   try {
-    connectToDb();
+    await connectToDb();
     const tasks = await Task.find({}).populate("userId", "username");
     return tasks;
   } catch (error) {
@@ -18,7 +17,7 @@ export const getTasks = async () => {
 export const getTask = async (id) => {
   noStore(); // its not gonna cache any more
   try {
-    connectToDb();
+    await connectToDb();
     const task = await Task.find({ _id: id });
     return task[0];
   } catch (error) {
@@ -29,7 +28,7 @@ export const getTask = async (id) => {
 
 export const getUser = async (id) => {
   try {
-    connectToDb();
+    await connectToDb();
     const user = await User.find({ id });
     return user[0];
   } catch (error) {
@@ -40,7 +39,7 @@ export const getUser = async (id) => {
 
 export const getUsers = async () => {
   try {
-    connectToDb();
+    await connectToDb();
     const users = await User.find({});
     return users;
   } catch (error) {
@@ -51,7 +50,7 @@ export const getUsers = async () => {
 
 export const getUsersForAdminPage = async () => {
   try {
-    connectToDb();
+    await connectToDb();
     const users = await User.find({});
     if (!users) {
       return NextResponse.json([]);
@@ -65,7 +64,7 @@ export const getUsersForAdminPage = async () => {
 
 export const getTasksForAdminPage = async () => {
   try {
-    connectToDb();
+    await connectToDb();
     const tasks = await Task.find({})
       .sort({ createdAt: -1 })
       .populate("userId", "username");

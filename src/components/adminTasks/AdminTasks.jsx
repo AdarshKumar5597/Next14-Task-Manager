@@ -2,7 +2,7 @@
 import { deleteTask } from "@/lib/action";
 import styles from "./adminTasks.module.css";
 import Image from "next/image";
-import AdminTaskForm from "../adminTaskForm/adminTaskForm";
+import AdminTaskForm from "../adminTaskForm/AdminTaskForm";
 import { useState } from "react";
 
 const Admintasks = async (props) => {
