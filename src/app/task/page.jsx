@@ -2,7 +2,7 @@ import TaskCard from "@/components/taskCard/taskCard";
 
 const getTasks = async () => {
 
-  const data = await fetch("http://localhost:3000/api/task")
+  const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/task`)
   
   if (!data.ok) {
     throw new Error("An error occurred while fetching the data");
