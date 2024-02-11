@@ -34,6 +34,7 @@ export const {
   signOut,
 } = NextAuth({
   ...authConfig,
+  site: process.env.NEXTAUTH_URL,
   providers: [
     GitHub({
       clientId: process.env.GITHUB_ID,
