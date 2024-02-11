@@ -53,9 +53,9 @@ export const getUsersForAdminPage = async () => {
     await connectToDb();
     const users = await User.find({});
     if (!users) {
-      return NextResponse.json([]);
+      return [];
     }
-    return NextResponse.json(users);
+    return users;
   } catch (error) {
     console.log(error);
     throw new Error("Failed to fetch users");
@@ -69,9 +69,9 @@ export const getTasksForAdminPage = async () => {
       .sort({ createdAt: -1 })
       .populate("userId", "username");
     if (!tasks) {
-      return NextResponse.json([]);
+      return [];
     }
-    return NextResponse.json(tasks);
+    return tasks;
   } catch (error) {
     console.log(error);
     throw new Error("Failed to fetch tasks");
