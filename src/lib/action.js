@@ -1,13 +1,13 @@
 "use server";
 import { revalidatePath } from "next/cache";
-import { redirect } from 'next/navigation'
+import { redirect } from "next/navigation";
 import { Task, User } from "./models";
 import { connectToDb } from "./utils";
 import { signIn, signOut } from "./auth";
 import bcrypt from "bcryptjs";
+import { NextResponse } from "next/server";
 
 export const addTask = async (formData) => {
-
   const { title, desc, userId, status } = formData;
 
   try {
@@ -49,11 +49,10 @@ export const updateTask = async (formData) => {
     console.log(error);
     console.log("Something went wrong while updating the Task");
   }
-
-}
+};
 
 export const deleteTask = async (id) => {
-  console.log("Inside deleteTask")
+  console.log("Inside deleteTask");
   try {
     connectToDb();
     await Task.findByIdAndDelete(id);
@@ -66,7 +65,6 @@ export const deleteTask = async (id) => {
 };
 
 export const addUser = async (formData) => {
-
   const { username, email, img, isAdmin, isUser, isThirdPerson } = formData;
 
   const salt = await bcrypt.genSalt(10);
@@ -75,7 +73,13 @@ export const addUser = async (formData) => {
   try {
     connectToDb();
     const newUser = await new User({
-      username, email, password: hashedPassword, img, isAdmin, isUser, isThirdPerson
+      username,
+      email,
+      password: hashedPassword,
+      img,
+      isAdmin,
+      isUser,
+      isThirdPerson,
     }).save();
     console.log(newUser);
     revalidatePath("/admin");
@@ -158,5 +162,18 @@ export const login = async (prevState, formData) => {
       return { error: "Invalid username or password" };
     }
     throw err;
+  }
+};
+
+export const getTasksOfUser = async (userId) => {
+  try {
+    connectToDb();
+    const tasks = await Task.find({ userId })
+      .sort({ createdAt: -1 })
+      .populate("userId", "username");
+    return NextResponse.json(tasks);
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch tasks");
   }
 };

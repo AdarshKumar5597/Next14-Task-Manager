@@ -1,8 +1,5 @@
 {
-  "/admin/page": "app/admin/page.js",
-  "/api/task/route": "app/api/task/route.js",
-  "/task/page": "app/task/page.js",
-  "/about/page": "app/about/page.js",
-  "/page": "app/page.js",
-  "/statistics/page": "app/statistics/page.js"
+  "/(auth)/login/page": "app/(auth)/login/page.js",
+  "/statistics/page": "app/statistics/page.js",
+  "/page": "app/page.js"
 }

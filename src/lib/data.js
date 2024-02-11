@@ -1,6 +1,8 @@
 import { Task, User } from "./models";
 import { connectToDb } from "./utils";
 import { unstable_noStore as noStore } from "next/cache";
+import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 
 export const getTasks = async () => {
   try {
@@ -48,21 +50,31 @@ export const getUsers = async () => {
 };
 
 export const getUsersForAdminPage = async () => {
-  const response = await fetch("http://localhost:3000/api/user");
-  
-  if (!response.ok) {
-    throw new Error("Error getting users");
+  try {
+    connectToDb();
+    const users = await User.find({});
+    if (!users) {
+      return NextResponse.json([]);
+    }
+    return NextResponse.json(users);
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch users");
   }
-
-  return response.json();
 };
 
 export const getTasksForAdminPage = async () => {
-  const response = await fetch("http://localhost:3000/api/task");
-
-  if (!response.ok) {
-    throw new Error("Error getting users");
+  try {
+    connectToDb();
+    const tasks = await Task.find({})
+      .sort({ createdAt: -1 })
+      .populate("userId", "username");
+    if (!tasks) {
+      return NextResponse.json([]);
+    }
+    return NextResponse.json(tasks);
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch tasks");
   }
-
-  return response.json();
 };

@@ -3,11 +3,14 @@ import { auth } from "@/lib/auth";
 import AddPageComponent from "@/components/addPageComponent/addPageComponent";
 
 const getTasks = async (userId) => {
-  const response = await fetch(`http://localhost:3000/api/task/${userId}`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/task/${userId}`);
   return await response.json();
 }
 
 const AddPage = async () => {
+  if (!process.env.NEXT_PUBLIC_BASE_API_URL){
+    return null;
+  }
   const session = await auth();
   const userTasks = await getTasks(session?.user?.id);
   if (userTasks) {
