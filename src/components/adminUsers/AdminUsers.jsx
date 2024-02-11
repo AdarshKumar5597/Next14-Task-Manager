@@ -4,7 +4,7 @@ import { deleteUser } from "@/lib/action";
 import styles from "./adminUsers.module.css";
 import Image from "next/image";
 import AdminUserForm from "../adminUserForm/AdminUserForm";
-import AdminTaskToUserForm from "../adminTaskToUserForm/adminTaskToUserForm";
+import AdminTaskToUserForm from "../adminTaskToUserForm/AdminTaskToUserForm";
 import { useState } from "react";
 
 const AdminUsers = async ({ users }) => {

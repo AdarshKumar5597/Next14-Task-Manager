@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { auth } from "@/lib/auth";
-import AddPageComponent from "@/components/addPageComponent/addPageComponent";
+import AddPageComponent from "@/components/addPageComponent/AddPageComponent";
 
 const getTasks = async (userId) => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/task/${userId}`);
