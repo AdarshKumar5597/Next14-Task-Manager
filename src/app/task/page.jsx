@@ -5,12 +5,8 @@ import { getTasksForAdminPage } from "@/lib/data";
 const getTasks = async () => {
 
   const data = await getTasksForAdminPage();
-  
-  if (!data.ok) {
-    throw new Error("An error occurred while fetching the data");
-  }
 
-  return data.json();
+  return data;
 };
 
 const TaskPage = async () => {
