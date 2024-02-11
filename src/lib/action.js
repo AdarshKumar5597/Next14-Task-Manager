@@ -110,7 +110,7 @@ export const handleGithubLogin = async (event) => {
 export const handleLogout = async (event) => {
   await signOut();
   // redirect to home using redirect
-  redirect("https://65c8c89d92c2f41f51806946--magenta-semolina-bc4ce6.netlify.app/");
+  redirect("/");
 };
 
 export const registerUser = async (formData) => {
