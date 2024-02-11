@@ -1,8 +1,10 @@
 import TaskCard from "@/components/taskCard/taskCard";
+import { getTasksForAdminPage } from "@/lib/data";
+
 
 const getTasks = async () => {
 
-  const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/task`)
+  const data = await getTasksForAdminPage();
   
   if (!data.ok) {
     throw new Error("An error occurred while fetching the data");
