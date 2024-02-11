@@ -60,7 +60,7 @@ export const authConfig = {
         // ONLY UNAUTHENTICATED USERS CAN REACH THE LOGIN PAGE
   
         if (isOnLoginPage && user) {
-          return Response.redirect(new URL("/", request.nextUrl));
+          return Response.redirect(new URL("https://65c8c89d92c2f41f51806946--magenta-semolina-bc4ce6.netlify.app/", request.nextUrl));
         }
   
         return true
