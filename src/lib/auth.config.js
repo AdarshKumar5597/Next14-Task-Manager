@@ -25,11 +25,11 @@ export const authConfig = {
       },
       authorized({ auth, request }) {
         const user = auth?.user;
-        const isOnAdminPanel = request.nextUrl?.pathname.startsWith("https://65c8c89d92c2f41f51806946--magenta-semolina-bc4ce6.netlify.app/admin");
-        const isOnStatsPanel = request.nextUrl?.pathname.startsWith("https://65c8c89d92c2f41f51806946--magenta-semolina-bc4ce6.netlify.app/statistics");
-        const isOnTaskPage = request.nextUrl?.pathname.startsWith("https://65c8c89d92c2f41f51806946--magenta-semolina-bc4ce6.netlify.app/task");
-        const isOnAddPage = request.nextUrl?.pathname.startsWith("https://65c8c89d92c2f41f51806946--magenta-semolina-bc4ce6.netlify.app/add");
-        const isOnLoginPage = request.nextUrl?.pathname.startsWith("https://65c8c89d92c2f41f51806946--magenta-semolina-bc4ce6.netlify.app/login");
+        const isOnAdminPanel = request.nextUrl?.pathname.startsWith("/admin");
+        const isOnStatsPanel = request.nextUrl?.pathname.startsWith("/statistics");
+        const isOnTaskPage = request.nextUrl?.pathname.startsWith("/task");
+        const isOnAddPage = request.nextUrl?.pathname.startsWith("/add");
+        const isOnLoginPage = request.nextUrl?.pathname.startsWith("/login");
   
         // ONLY ADMIN CAN REACH THE ADMIN DASHBOARD
   
@@ -60,7 +60,7 @@ export const authConfig = {
         // ONLY UNAUTHENTICATED USERS CAN REACH THE LOGIN PAGE
   
         if (isOnLoginPage && user) {
-          return Response.redirect(new URL("https://65c8c89d92c2f41f51806946--magenta-semolina-bc4ce6.netlify.app/", request.nextUrl));
+          return Response.redirect(new URL("/", request.nextUrl));
         }
   
         return true
