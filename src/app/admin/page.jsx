@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import styles from "./admin.module.css";
 import AdminTasks from "@/components/adminTasks/AdminTasks";
-import AdminUsers from "@/components/adminUsers/adminUsers";
+import AdminUsers from "@/components/adminUsers/AdminUsers";
 import { getTasksForAdminPage, getUsersForAdminPage } from "@/lib/data";
 
 

@@ -1,16 +1,7 @@
 {
-  "/(auth)/forgot-password/page": "app/(auth)/forgot-password/page.js",
-  "/_not-found": "app/_not-found.js",
-  "/(auth)/login/page": "app/(auth)/login/page.js",
-  "/add/page": "app/add/page.js",
-  "/(auth)/register/page": "app/(auth)/register/page.js",
-  "/admin/page": "app/admin/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/statistics/page": "app/statistics/page.js",
-  "/task/page": "app/task/page.js",
-  "/about/page": "app/about/page.js",
-  "/api/task/[userId]/route": "app/api/task/[userId]/route.js",
   "/page": "app/page.js",
-  "/api/task/route": "app/api/task/route.js"
+  "/about/page": "app/about/page.js",
+  "/task/page": "app/task/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/statistics/page": "app/statistics/page.js"
 }

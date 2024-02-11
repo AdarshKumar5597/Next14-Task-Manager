@@ -1,7 +1,7 @@
 "use client";
 
 import { addTask } from "@/lib/action";
-import styles from "./AdminTaskToUserForm.module.css";
+import styles from "./adminTaskToUserForm.module.css";
 import { useForm } from "react-hook-form";
 
 const AdminTaskToUserForm = (props) => {
