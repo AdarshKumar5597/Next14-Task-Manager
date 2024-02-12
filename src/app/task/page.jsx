@@ -1,14 +1,12 @@
 import TaskCard from "@/components/taskCard/taskCard";
+import { getTasksForAdminPage } from "@/lib/data";
+
 
 const getTasks = async () => {
 
-  const data = await fetch("http://localhost:3000/api/task")
-  
-  if (!data.ok) {
-    throw new Error("An error occurred while fetching the data");
-  }
+  const data = await getTasksForAdminPage();
 
-  return data.json();
+  return data;
 };
 
 const TaskPage = async () => {

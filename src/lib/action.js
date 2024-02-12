@@ -171,7 +171,7 @@ export const getTasksOfUser = async (userId) => {
     const tasks = await Task.find({ userId })
       .sort({ createdAt: -1 })
       .populate("userId", "username");
-    return NextResponse.json(tasks);
+    return tasks;
   } catch (error) {
     console.log(error);
     throw new Error("Failed to fetch tasks");
