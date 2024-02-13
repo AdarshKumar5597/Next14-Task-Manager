@@ -1,4 +1,5 @@
 import TaskCard from "@/components/taskCard/taskCard";
+import { auth } from "@/lib/auth";
 import { getTasksForAdminPage } from "@/lib/data";
 
 
@@ -10,7 +11,8 @@ const getTasks = async () => {
 };
 
 const TaskPage = async () => {
-  const tasks = await getTasks();
+  const session = await auth();
+  const tasks = session ? await getTasks() : [];
 
   return (
     <div className="flex flex-wrap gap-[20px]">

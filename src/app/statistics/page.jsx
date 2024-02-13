@@ -3,10 +3,12 @@ import styles from "./statistics.module.css";
 import Image from "next/image";
 import ChartComponent from "@/components/chartComponent/ChartComponent";
 import { getTasks, getUsers } from "@/lib/data";
+import { auth } from "@/lib/auth";
 
 const StatsPage = async () => {
-  const users = await getUsers();
-  const tasks = await getTasks();
+  const session = await auth();
+  const users = session ? await getUsers() : [];
+  const tasks = session ? await getTasks() : [];
   console.log("Users: ", users, "Tasks: ", tasks);
 
   const assignedTasksLength = tasks?.filter(

@@ -9,11 +9,8 @@ const getTasks = async (userId) => {
 }
 
 const AddPage = async () => {
-  if (!process.env.NEXT_PUBLIC_BASE_API_URL){
-    return null;
-  }
   const session = await auth();
-  const userTasks = await getTasks(session?.user?.id);
+  const userTasks = session ? await getTasks(session?.user?.id) : [];
   if (userTasks) {
     console.log("userTasks: ", userTasks);
   }

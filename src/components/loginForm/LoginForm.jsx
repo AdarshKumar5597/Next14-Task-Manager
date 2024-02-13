@@ -95,7 +95,7 @@ const LoginForm = (props) => {
           ))}
 
         <Link href="/login">
-          Don't have an account?&nbsp; <b>Register</b>
+          {"Don't have an account? "} <b>Register</b>
         </Link>
       </form>
     </div>
