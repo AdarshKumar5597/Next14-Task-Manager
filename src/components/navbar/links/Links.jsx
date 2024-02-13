@@ -3,9 +3,11 @@ import React, { useState } from "react";
 import NavLink from "./navLink/navLink";
 import Image from "next/image";
 import { handleLogout } from "@/lib/action";
+import { useRouter } from "next/navigation";
 
 const Links = ({ session }) => {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
   const links = [
     {
       title: "Home",
@@ -21,6 +23,12 @@ const Links = ({ session }) => {
       path: "/task",
     },
   ];
+
+  async function refreshPageOnLogout() {
+    await handleLogout();
+    router.replace("/");
+    window.location.reload();
+  }
 
   return (
     <div>
@@ -43,8 +51,8 @@ const Links = ({ session }) => {
               )
             }
             <button
-              onClick={() => {
-                handleLogout();
+              onClick={async () => {
+                await refreshPageOnLogout();
               }}
               className="p-[10px] cursor-pointer font-bold bg-white rounded-[10px] text-[#0d0c22]"
             >

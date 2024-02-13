@@ -108,9 +108,7 @@ export const handleGithubLogin = async (event) => {
 };
 
 export const handleLogout = async (event) => {
-  await signOut();
-  // redirect to home using redirect
-  redirect("/");
+  await signOut({ redirect: false });
 };
 
 export const registerUser = async (formData) => {
