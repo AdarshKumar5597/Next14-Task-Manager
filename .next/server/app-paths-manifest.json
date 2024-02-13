@@ -1,13 +1,3 @@
 {
-  "/_not-found": "app/_not-found.js",
-  "/(auth)/forgot-password/page": "app/(auth)/forgot-password/page.js",
-  "/(auth)/login/page": "app/(auth)/login/page.js",
-  "/(auth)/register/page": "app/(auth)/register/page.js",
-  "/admin/page": "app/admin/page.js",
-  "/add/page": "app/add/page.js",
-  "/statistics/page": "app/statistics/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/task/page": "app/task/page.js",
-  "/about/page": "app/about/page.js",
   "/page": "app/page.js"
 }
