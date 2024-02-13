@@ -6,7 +6,7 @@ const getTasks = async () => {
 
   const data = await getTasksForAdminPage();
 
-  return data;
+  return await data.json();
 };
 
 const TaskPage = async () => {

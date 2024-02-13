@@ -6,8 +6,8 @@ import { getTasksForAdminPage, getUsersForAdminPage } from "@/lib/data";
 
 
 const loadInitialData = async () => {
-  const users = await getUsersForAdminPage();
-  const tasks = await getTasksForAdminPage();
+  const users = await (await getUsersForAdminPage()).json();
+  const tasks = await (await getTasksForAdminPage()).json();
   return { users, tasks };
 }
 

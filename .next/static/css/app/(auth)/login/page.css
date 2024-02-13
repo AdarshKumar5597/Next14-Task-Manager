@@ -10,30 +10,3 @@
     border: 1px solid rgba(255, 255, 255, 0.18);
   }
   
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./src/components/loginForm/loginForm.module.css ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************/
-.loginForm_form__gv3hk{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
-  }
-  
-  .loginForm_form__gv3hk input{
-    padding: 20px;
-    background-color: var(--bg);
-    color: var(--textColor);
-    border: none;
-    border-radius: 5px;
-  }
-  
-  .loginForm_form__gv3hk button{
-    padding: 20px;
-    cursor: pointer;
-    background-color: var(--btn);
-    color: var(--textColor);
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-  }

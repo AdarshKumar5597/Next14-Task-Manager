@@ -150,11 +150,12 @@ export const registerUser = async (formData) => {
   }
 };
 
-export const login = async (prevState, formData) => {
-  const { username, password } = Object.fromEntries(formData);
+export const login = async (formData) => {
+  // const { username, password } = Object.fromEntries(formData);
+  const { username, password } = formData;
 
   try {
-    await signIn("credentials", { username, password });
+    await signIn("credentials", { username, password, redirect: false });
   } catch (err) {
     console.log(err);
 
@@ -171,7 +172,7 @@ export const getTasksOfUser = async (userId) => {
     const tasks = await Task.find({ userId })
       .sort({ createdAt: -1 })
       .populate("userId", "username");
-    return tasks;
+    return NextResponse.json(tasks);
   } catch (error) {
     console.log(error);
     throw new Error("Failed to fetch tasks");

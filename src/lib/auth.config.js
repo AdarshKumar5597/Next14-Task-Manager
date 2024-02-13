@@ -7,11 +7,13 @@ export const authConfig = {
       // FOR MORE DETAIL ABOUT CALLBACK FUNCTIONS CHECK https://next-auth.js.org/configuration/callbacks
       async jwt({ token, user }) {
         if (user) {
+          console.log("user: ", user);
           token.id = user.id;
-          token.isAdmin = user.isAdmin;
-          token.isUser = user.isUser;
-          token.isThirdPerson = user.isThirdPerson;
+          token.isAdmin = user._doc.isAdmin;
+          token.isUser = user._doc.isUser;
+          token.isThirdPerson = user._doc.isThirdPerson;
         }
+        console.log("token: ", token);
         return token;
       },
       async session({ session, token }) {
@@ -60,7 +62,8 @@ export const authConfig = {
         // ONLY UNAUTHENTICATED USERS CAN REACH THE LOGIN PAGE
   
         if (isOnLoginPage && user) {
-          return Response.redirect(new URL("/", request.nextUrl));
+          // return Response.redirect(new URL("/", request.nextUrl));
+          console.log("user in authorized: ", user);
         }
   
         return true
