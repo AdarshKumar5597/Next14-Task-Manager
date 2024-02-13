@@ -26,8 +26,8 @@ const Links = ({ session }) => {
 
   async function refreshPageOnLogout() {
     await handleLogout();
-    router.replace("/");
-    window.location.reload();
+    router.replace("/login");
+    router.refresh();
   }
 
   return (
